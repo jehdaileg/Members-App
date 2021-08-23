@@ -1,12 +1,39 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+//import Home from "../views/Home.vue";
+import Dashboard from "../components/Dashboard.vue";
+//import ViewMember from "../components/members/ViewMember.vue";
+//import NewMember from "../components/members/NewMember.vue";
+//import EditMember from "../components/members/NewMember.vue";
+
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "Dashboard",
+    component: Dashboard,
   },
+
+  {
+    path: "/new",
+    name: "NewMember",
+    component : ()=> import ('../components/members/NewMember.vue'),
+
+  },
+  {
+    path: "/edit/:member_id",
+    name: "EditMember",
+    component: ()=> import ('../components/members/EditMember.vue'),
+
+  },
+
+  {
+    path: "/:member_id",
+    name: "ViewMember",
+    component: ()=> import ('../components/members/ViewMember.vue'),
+
+  },
+
+
   {
     path: "/about",
     name: "About",
